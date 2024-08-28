@@ -1,4 +1,4 @@
-name: Deploy
+git config --global credential.helpername: Deploy
 
 on:
   push:
