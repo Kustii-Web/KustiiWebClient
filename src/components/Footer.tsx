@@ -11,8 +11,8 @@ function Footer() {
   const trainCompartment = [logo1, logo2, logo3, logo4, logo5, logo6];
 
   return (
-    <div className="absolute bottom-0 ">
-      <div className="w-screen h-[130px] bg-[#D9D9D9] flex">
+    <div className="">
+      <div className="h-[130px] bg-[#D9D9D9] flex">
         <div className="flex text-center ml-[68px]">
           {trainCompartment.map((item, index) => (
             <div key={index} className="flex text-center mr-[68px] ">
@@ -21,7 +21,7 @@ function Footer() {
           ))}
         </div>
       </div>
-      <div className="w-screen h-[159px] bg-[#464646]">
+      <div className="h-[159px] bg-[#464646]">
         <div className="flex pl-[50px] pt-[55px]">
           <img src={logo} />
           <div className="font-NotoSerifKR text-white mt-4">

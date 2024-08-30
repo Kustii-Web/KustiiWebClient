@@ -2,9 +2,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./page/MainPage";
 import ActivityPage from "./page/ActivityPage";
 import CooperPage from "./page/CooperPage";
-import InfoPage from "./page/InfoPage";
+import InfoPage from "./page/Info/InfoPage";
+import Vision_goal from "./page/Info/VisionGoal";
+import Strategy from "./page/Info/Strategy";
+import Business from "./page/Info/Business";
+import Organization from "./page/Info/Organization";
+import ArticleIncorper from "./page/Info/ArticleIncorper";
+import Direction from "./page/Info/Direction";
 import NoticePage from "./page/NoticePage";
-import { MAIN_PATH } from "./common/constants/path.const";
+import {
+  ACT_PATH,
+  COOPER_PATH,
+  INFO_PATH,
+  NOTICE_PATH,
+} from "./common/constants/path.const";
 
 import "./App.css";
 
@@ -13,10 +24,20 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path={MAIN_PATH.INFO} element={<InfoPage />} />
-        <Route path={MAIN_PATH.NOTICE} element={<NoticePage />} />
-        <Route path={MAIN_PATH.ACT} element={<ActivityPage />} />
-        <Route path={MAIN_PATH.COOPER} element={<CooperPage />} />
+        <Route path={INFO_PATH.INFO} element={<InfoPage />} />
+        <Route path={INFO_PATH.VISION} element={<Vision_goal />} />
+        <Route path={INFO_PATH.STRATEGY} element={<Strategy />} />
+        <Route path={INFO_PATH.BUSINESS} element={<Business />} />
+        <Route path={INFO_PATH.ORGANI} element={<Organization />} />
+        <Route
+          path={INFO_PATH.ARTICLE_INCORPER}
+          element={<ArticleIncorper />}
+        />
+        <Route path={INFO_PATH.DIRECTION} element={<Direction />} />
+
+        <Route path={NOTICE_PATH.NOTICE} element={<NoticePage />} />
+        <Route path={ACT_PATH.ACT} element={<ActivityPage />} />
+        <Route path={COOPER_PATH.COOPER} element={<CooperPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -42,28 +42,28 @@ function Header() {
         <div className="flex items-center">
           <div
             className="mx-[49.5px] my-[10px] opacity-50"
-            id="info"
+            id="1-1"
             onClick={clickHandler}
           >
             소개
           </div>
           <div
             className="mx-[49.5px] my-[10px] opacity-50"
-            id="notice"
+            id="2-1"
             onClick={clickHandler}
           >
             공지사항
           </div>
           <div
             className="mx-[49.5px] my-[10px] opacity-50"
-            id="activity"
+            id="3-1"
             onClick={clickHandler}
           >
             주요 활동
           </div>
           <div
             className="mx-[49.5px] my-[10px] opacity-50"
-            id="cooper"
+            id="4-1"
             onClick={clickHandler}
           >
             협력 동향
