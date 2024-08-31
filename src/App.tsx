@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./page/MainPage";
-import ActivityPage from "./page/ActivityPage";
-import CooperPage from "./page/CooperPage";
+
 import InfoPage from "./page/Info/InfoPage";
 import Vision_goal from "./page/Info/VisionGoal";
 import Strategy from "./page/Info/Strategy";
@@ -9,7 +8,17 @@ import Business from "./page/Info/Business";
 import Organization from "./page/Info/Organization";
 import ArticleIncorper from "./page/Info/ArticleIncorper";
 import Direction from "./page/Info/Direction";
-import NoticePage from "./page/NoticePage";
+
+import NoticePage from "./page/Notice/NoticePage";
+import Customer from "./page/Notice/Customer";
+import Donation from "./page/Notice/Donation";
+import PubliCor from "./page/Notice/PublicCorper";
+
+import ActivityPage from "./page/Activity/ActivityPage";
+
+import CooperPage from "./page/Cooper/CooperPage";
+import AboutVideo from "./page/Cooper/AboutVideo";
+
 import {
   ACT_PATH,
   COOPER_PATH,
@@ -36,8 +45,13 @@ function App() {
         <Route path={INFO_PATH.DIRECTION} element={<Direction />} />
 
         <Route path={NOTICE_PATH.NOTICE} element={<NoticePage />} />
+        <Route path={NOTICE_PATH.CUSTOMER} element={<Customer />} />
+        <Route path={NOTICE_PATH.PUBLIC} element={<PubliCor />} />
+        <Route path={NOTICE_PATH.DONATION} element={<Donation />} />
+
         <Route path={ACT_PATH.ACT} element={<ActivityPage />} />
         <Route path={COOPER_PATH.COOPER} element={<CooperPage />} />
+        <Route path={COOPER_PATH.VIDIEO} element={<CooperPage />} />
       </Routes>
     </BrowserRouter>
   );

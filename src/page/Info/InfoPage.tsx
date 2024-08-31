@@ -1,14 +1,7 @@
-import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import infoImage from "../../common/images/info.png";
 import SideBar from "../../components/SideBar";
-
-interface IntroData {
-  title: string;
-  content: string;
-  images?: string[];
-}
 
 function InfoPage() {
   return (

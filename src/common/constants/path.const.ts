@@ -8,12 +8,16 @@ export const INFO_PATH = {
   ARTICLE_INCORPER: "/1-6",
   DIRECTION: "/1-7",
 };
+export const NOTICE_PATH = {
+  NOTICE: "/2-1",
+  CUSTOMER: "/2-2",
+  PUBLIC: "/2-3",
+  DONATION: "/2-4",
+};
 export const ACT_PATH = {
-  ACT: "/2-1",
+  ACT: "/3-1",
 };
 export const COOPER_PATH = {
-  COOPER: "/3-1",
-};
-export const NOTICE_PATH = {
-  NOTICE: "/4-1",
+  COOPER: "/4-1",
+  VIDIEO: "/4-2",
 };
