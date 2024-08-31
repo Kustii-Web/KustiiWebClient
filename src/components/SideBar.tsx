@@ -62,7 +62,7 @@ const SideBar: React.FC = () => {
                 {item.list.map((subItem) => (
                   <li
                     key={subItem.code}
-                    className="text-sm mt-[14px] text-gray-W500"
+                    className="text-sm mt-[14px] text-gray-500"
                   >
                     <Link to={`/${subItem.code}`}>{subItem.name}</Link>
                   </li>
