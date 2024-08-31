@@ -51,7 +51,7 @@ function App() {
 
         <Route path={ACT_PATH.ACT} element={<ActivityPage />} />
         <Route path={COOPER_PATH.COOPER} element={<CooperPage />} />
-        <Route path={COOPER_PATH.VIDIEO} element={<CooperPage />} />
+        <Route path={COOPER_PATH.VIDIEO} element={<AboutVideo />} />
       </Routes>
     </BrowserRouter>
   );
