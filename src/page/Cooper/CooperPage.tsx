@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import infoImage from "../../common/images/info.png";
+import cooperImg from "../../common/images/cooper.png";
 import { intro } from "../../common/api/Info";
 import SideBar from "../../components/SideBar";
 interface IntroData {
@@ -14,6 +14,7 @@ interface IntroData {
 function CooperPage() {
   const { code } = useParams<{ code: string }>();
   const [introData, setIntroData] = useState<IntroData | null>(null);
+  console.log(introData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,13 +29,10 @@ function CooperPage() {
     fetchData();
   }, [code]);
 
-  if (!introData) return <div>Loading...</div>;
-
-  console.log(introData.content);
   return (
     <div>
       <Header />
-      <img src={infoImage} alt="Info" />
+      <img src={cooperImg} alt="Info" />
       <div className="flex">
         <SideBar />
         <div className="ml-[152px]">

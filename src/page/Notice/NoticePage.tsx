@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import infoImage from "../../common/images/info.png";
+import noticeImage from "../../common/images/notice.png";
 import { intro } from "../../common/api/Info";
 import SideBar from "../../components/SideBar";
 interface IntroData {
@@ -14,7 +14,7 @@ interface IntroData {
 function NoticePage() {
   const { code } = useParams<{ code: string }>();
   const [introData, setIntroData] = useState<IntroData | null>(null);
-
+  console.log(introData);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,19 +28,23 @@ function NoticePage() {
     fetchData();
   }, [code]);
 
-  if (!introData) return <div>Loading...</div>;
-
-  console.log(introData.content);
   return (
     <div>
       <Header />
-      <img src={infoImage} alt="Info" />
+      <img src={noticeImage} alt="Info" />
       <div className="flex">
         <SideBar />
         <div className="ml-[152px]">
           <div className="text-[32px] mt-[49px]">주요 소식</div>
           <hr className="w-[827px] h-[4px] bg-black mb-[52px]" />
-          <div className="mt-4"></div>
+          <div className="mt-4">
+            {/* <div className="flex">
+              <div>category</div>
+              <div>box</div>
+              <div>button</div>
+            </div>
+            <div>content</div> */}
+          </div>
         </div>
       </div>
 
