@@ -6,34 +6,42 @@ import listLogo from "../common/icons/list.svg";
 
 function Header() {
   let tab = (useLocation().state as any) || "main";
-  const [selected, setSeleceted] = useState({
+  const [selected, setSelected] = useState({
     ActivityPage: false,
     CooperPage: false,
     InfoPage: false,
     MainPage: true,
   });
-  console.log(selected);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
+
   const clickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     const { id } = e.currentTarget;
 
     if (tab === id) return;
-    setSeleceted(() => {
+    setSelected(() => {
       const temp = {
         ActivityPage: false,
-        CooperPage: true,
+        CooperPage: false,
         InfoPage: false,
         MainPage: false,
       };
       return { ...temp, [id]: true };
     });
-    navigation(`/${id}`, { state: id });
+    navigate(`/${id}`, { state: id });
   };
+
+  const logoClickHandler = () => {
+    navigate("/", { state: "main" }); // Navigate to home page
+  };
+
   return (
     <div className="flex">
       <div className="flex w-screen h-[97px] bg-white">
-        <div className="flex ml-[95px] items-center mr-[205px]">
-          <img src={headerLogo} id="logo" />
+        <div
+          className="flex ml-[95px] items-center mr-[205px]"
+          onClick={logoClickHandler}
+        >
+          <img src={headerLogo} id="logo" alt="Logo" />
           <div className="font-NotoSerifKR ml-[3px]">
             <p className="text-[18px]"> (사)한미과학기술혁신진흥원</p>
             <p className="text-[13px]"> Korea-U.S. STI Institute</p>

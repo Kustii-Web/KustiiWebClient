@@ -10,11 +10,15 @@ import ArticleIncorper from "./page/Info/ArticleIncorper";
 import Direction from "./page/Info/Direction";
 
 import NoticePage from "./page/Notice/NoticePage";
+import NoticeDetailPage from "./page/Notice/NoticeDetailPage ";
 import Customer from "./page/Notice/Customer";
+import CustomerDetailPage from "./page/Notice/CustomerDetailPage";
 import Donation from "./page/Notice/Donation";
+import DonationDetailPage from "./page/Notice/DonationDetailPage";
 import PubliCor from "./page/Notice/PublicCorper";
 
 import ActivityPage from "./page/Activity/ActivityPage";
+import ActivityDetailPage from "./page/Activity/ActivityDetail";
 
 import CooperPage from "./page/Cooper/CooperPage";
 import AboutVideo from "./page/Cooper/AboutVideo";
@@ -45,11 +49,22 @@ function App() {
         <Route path={INFO_PATH.DIRECTION} element={<Direction />} />
 
         <Route path={NOTICE_PATH.NOTICE} element={<NoticePage />} />
+        <Route path={NOTICE_PATH.NOTICEDETAIL} element={<NoticeDetailPage />} />
         <Route path={NOTICE_PATH.CUSTOMER} element={<Customer />} />
+        <Route
+          path={NOTICE_PATH.CUSTOMERDETAIL}
+          element={<CustomerDetailPage />}
+        />
         <Route path={NOTICE_PATH.PUBLIC} element={<PubliCor />} />
         <Route path={NOTICE_PATH.DONATION} element={<Donation />} />
+        <Route
+          path={NOTICE_PATH.DONATIONDETAIL}
+          element={<DonationDetailPage />}
+        />
 
         <Route path={ACT_PATH.ACT} element={<ActivityPage />} />
+        <Route path={ACT_PATH.ACTDETAIL} element={<ActivityDetailPage />} />
+
         <Route path={COOPER_PATH.COOPER} element={<CooperPage />} />
         <Route path={COOPER_PATH.VIDIEO} element={<AboutVideo />} />
       </Routes>
