@@ -14,7 +14,8 @@ const MapBox = () => {
       level: 3, // 지도의 레벨(확대, 축소 정도)
     };
 
-    let map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
+    let map = new window.kakao.maps.Map(container, options);
+    console.log(map); // 지도 생성 및 객체 리턴
   }, []);
 
   return <div id="map" style={{ width: "100vw", height: "100vh" }} />;

@@ -33,6 +33,7 @@ function Header() {
   const logoClickHandler = () => {
     navigate("/", { state: "main" }); // Navigate to home page
   };
+  console.log(selected);
 
   return (
     <div className="flex">

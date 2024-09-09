@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // For navigation
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import activityImage from "../../common/images/activity.png";
-import { mainBuisness } from "../../common/api/Activity";
+import { mainBuisness, activityOne } from "../../common/api/Activity";
 import SideBar from "../../components/SideBar";
 
 interface IntroData {
@@ -20,11 +20,16 @@ function ActivityPage() {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [pageButtons, setPageButtons] = useState<number[]>([]);
   const [search, setSearch] = useState<string>("");
+  const [isSearch, setIsSearch] = useState<boolean>(false); // 검색 여부 상태 관리
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchData();
+    if (isSearch) {
+      fetchSearchData();
+    } else {
+      fetchData();
+    }
   }, [currentPage]);
 
   const fetchData = async () => {
@@ -48,12 +53,47 @@ function ActivityPage() {
     }
   };
 
+  // 검색 결과 데이터 호출
+  const fetchSearchData = async () => {
+    try {
+      const res = await activityOne(currentPage, search);
+      const {
+        posts,
+        total_pages,
+      }: { posts: IntroData[]; total_pages: number } = res;
+      setNews(posts);
+
+      const buttons: number[] = [];
+      for (let i = 0; i < total_pages; i++) {
+        buttons.push(i + 1);
+      }
+      setPageButtons(buttons);
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+      setNews([]);
+      setPageButtons([]);
+    }
+  };
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
   const handleTitleClick = (id: string) => {
     navigate(`/3-1/${id}`);
+  };
+
+  const handleSearch = () => {
+    setIsSearch(true); // 검색 상태로 전환
+    setCurrentPage(1); // 검색 시 첫 페이지로 초기화
+    fetchSearchData();
+  };
+
+  const handleResetSearch = () => {
+    setSearch(""); // 검색어 초기화
+    setIsSearch(false); // 검색 상태 해제
+    setCurrentPage(1); // 페이지 초기화
+    fetchData(); // 기본 데이터 다시 불러오기
   };
 
   // Extract only the date portion (YYYY-MM-DD) from the created_at timestamp
@@ -80,7 +120,28 @@ function ActivityPage() {
         <div className="ml-[152px] w-full">
           <div className="text-[32px] mt-[49px]">주요 산업 추진 현황</div>
           <hr className="w-[827px] h-[4px] bg-black mb-[52px]" />
-
+          {/* Search Bar */}
+          <div className="flex mb-4">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="검색어를 입력하세요"
+              className="border p-2 w-[300px] mr-2"
+            />
+            <button
+              onClick={handleSearch}
+              className="bg-blue-500 text-white p-2 rounded"
+            >
+              검색
+            </button>
+            <button
+              onClick={handleResetSearch}
+              className="bg-gray-500 text-white p-2 rounded ml-2"
+            >
+              초기화
+            </button>
+          </div>
           {/* Notice Table */}
           <table className="w-[827px] text-left mt-4 border-[1px] border-opacity-20 border-[#000000]">
             <thead>
